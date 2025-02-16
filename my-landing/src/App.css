@@ -1,0 +1,11 @@
+/* Remove any default margin or padding */
+* {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+html, body {
+ 
+  width: 100% !important;
+  height: 100% !important;
+ 
+}
