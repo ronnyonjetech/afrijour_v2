@@ -18,10 +18,13 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
+    "framer-motion": "^12.4.3",
     "gsap": "^3.12.7",
+    "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
+    "react-simple-maps": "^3.0.0",
     "wow.js": "^1.2.2"
   },
   "devDependencies": {

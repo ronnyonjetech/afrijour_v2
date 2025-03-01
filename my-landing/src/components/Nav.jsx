@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -23,28 +24,16 @@ const Nav = () => {
 
   return (
     <>
-      {/* NAVBAR */}
       <nav
         className="navbar navbar-expand-lg navbar-dark fixed-top"
         style={{
-          backgroundColor: scrolled || dropdownOpen ? "#5ecf5e" : "transparent",
+          backgroundColor: scrolled || dropdownOpen ? "#6eb444" : "transparent",
           transition: "background-color 0.3s ease-in-out",
         }}
       >
         <div className="container-fluid">
-          {/* <a className="navbar-brand text-white" href="#">
-            <img
-              alt="AfrikaJournals"
-              src="./AGRA - Sustainably Growing Africa&#39;s Food Systems_files/agralogo.png"
-              width="150"
-            />
-          </a> */}
           <Link className="navbar-brand text-white" to="/">
-            <img
-              alt="AGRA Logo"
-              src="./AGRA - Sustainably Growing Africa&#39;s Food Systems_files/agralogo.png"
-              width="150"
-            />
+            <img alt="AGRA Logo" src="/logo.png" width="100" height="auto" />
           </Link>
           <button
             className="navbar-toggler text-white"
@@ -66,27 +55,24 @@ const Nav = () => {
                   Features
                 </a>
               </li>
-               <li className="nav-item">
+              <li className="nav-item">
                 <a className="nav-link text-white" href="#">
                   About
                 </a>
               </li>
-               <li className="nav-item">
+              <li className="nav-item">
                 <a className="nav-link text-white" href="#">
                   Research
                 </a>
               </li>
+
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">
+                <Link className="nav-link text-white" to="/map">
                   Map
-                </a>
+                </Link>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  Testimonials
-                </a>
-              </li> */}
-               <li className="nav-item">
+
+              <li className="nav-item">
                 <Link className="nav-link text-white" to="/testimonial">
                   Testimonials
                 </Link>
@@ -111,7 +97,6 @@ const Nav = () => {
         </div>
       </nav>
 
-      {/* DROPDOWN MENU - Moved lower to avoid covering navbar */}
       {dropdownOpen && (
         <div
           className="dropdown-menu show w-100"
@@ -119,7 +104,7 @@ const Nav = () => {
             position: "fixed",
             top: "44px", // Move dropdown further down
             left: "0",
-            backgroundColor: "#5ecf5e",
+            backgroundColor: "#6eb444",
             borderTop: "4px solid white",
             borderRadius: "0",
             padding: "20px",
@@ -170,6 +155,7 @@ const Nav = () => {
                     <a href="#" className="text-white">
                       Contact Us
                     </a>
+                    
                   </li>
                 </ul>
               </div>
