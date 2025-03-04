@@ -77,7 +77,7 @@ const Nav = () => {
                   Testimonials
                 </Link>
               </li>
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link text-white"
                   href="#"
@@ -91,13 +91,13 @@ const Nav = () => {
                   <span className="fw-bold">What we do</span>
                   <FontAwesomeIcon icon={faPlus} className="text-white" />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
       </nav>
 
-      {dropdownOpen && (
+      {/* {dropdownOpen && (
         <div
           className="dropdown-menu show w-100"
           style={{
@@ -162,7 +162,7 @@ const Nav = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
