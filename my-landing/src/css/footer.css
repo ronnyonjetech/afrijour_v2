@@ -9,7 +9,8 @@ body{margin-top:20px;}
     padding:60px;
 }
 .footer_area {
-    background-color: #ebebeb; /* Light gray */
+    background-color: #113541; 
+    /* background-color: #ebebeb;  */
 }
 .footer_area a {
     /* color: #90ee90;  */
@@ -17,19 +18,20 @@ body{margin-top:20px;}
 }
 /* text of list items */
 .footer_menu ul li a {
-    color: green !important;
+    color: white !important;
     text-decoration: none !important; 
   }
 /* text on the far left */
   .single-footer-widget p,
   .copywrite-text p {
-    color: green !important;
+    color: white !important;
   }
 /* title of lists */
   .widget-title {
-    color: rgb(2, 61, 2);
+    color: white;
     font-weight: 800;
     font-size: 1.7em;
+   
   }
   
     
@@ -150,7 +152,7 @@ body{margin-top:20px;}
     text-align: center;
     width: 40px;
     display: inline-block;
-    background-color: #f5f5ff;
+    background-color: #113541;
     line-height: 40px;
     -webkit-box-shadow: none;
     box-shadow: none;

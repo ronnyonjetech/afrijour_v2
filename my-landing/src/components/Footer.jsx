@@ -1,3 +1,4 @@
+
 import React from "react";
 import "../css/footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,18 +7,26 @@ import {
   faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+
 const Footer = () => {
   return (
     <footer className="footer_area section_padding_130_0">
       <div className="container">
-        <div className="row">
+        <div className="row align-items-start">
           {/* About Section */}
-          <div className="col-12 col-sm-6 col-lg-4">
-            <div className="single-footer-widget section_padding_0_130">
-              <div className="footer-logo mb-3"></div>
+          <div className="col-12 col-sm-6 col-lg-4 d-flex flex-column justify-content-center">
+            <div className="single-footer-widget">
+              <div className="footer-logo mb-3">
+                <img
+                  src="/logo1.png"
+                  alt="hero-img"
+                  width={150}
+                  height={150}
+                  className="img-fluid rounded-circle"
+                />
+              </div>
               <p>
-                Appland is completely creative, lightweight, clean app landing
-                page.
+                Afrikajournal is a free online journal indexing platform that makes African journal visible
               </p>
               <div className="copywrite-text mb-5">
                 <p className="mb-0">
@@ -64,8 +73,8 @@ const Footer = () => {
           </div>
 
           {/* About */}
-          <div className="col-12 col-sm-6 col-lg">
-            <div className="single-footer-widget section_padding_0_130">
+          <div className="col-12 col-sm-6 col-lg d-flex flex-column justify-content-start mt-4">
+            <div className="single-footer-widget">
               <h5 className="widget-title">About</h5>
               <div className="footer_menu">
                 <ul>
@@ -87,8 +96,8 @@ const Footer = () => {
           </div>
 
           {/* Support */}
-          <div className="col-12 col-sm-6 col-lg">
-            <div className="single-footer-widget section_padding_0_130">
+          <div className="col-12 col-sm-6 col-lg d-flex flex-column justify-content-start mt-4">
+            <div className="single-footer-widget">
               <h5 className="widget-title">Support</h5>
               <div className="footer_menu">
                 <ul>
@@ -113,8 +122,8 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="col-12 col-sm-6 col-lg">
-            <div className="single-footer-widget section_padding_0_130">
+          <div className="col-12 col-sm-6 col-lg d-flex flex-column justify-content-start mt-4">
+            <div className="single-footer-widget">
               <h5 className="widget-title">Contact</h5>
               <div className="footer_menu">
                 <ul>

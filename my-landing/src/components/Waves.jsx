@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "../css/wave.css"; // Ensure this file is correctly imported
@@ -11,9 +10,11 @@ const Waves = () => {
       gsap.to(".parallax use", {
         duration: 4,
         repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        x: "-=20", // Moves waves left and right
+        ease: "linear",
+        x: "+=100", // Moves waves from left to right
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % 100),
+        },
         stagger: 0.3,
       });
     }, waveRef);
@@ -37,11 +38,12 @@ const Waves = () => {
             d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
           />
         </defs>
+        {/* rgba(228,229,23,0.7) */}
         <g className="parallax">
-          <use x="48" xlinkHref="#gentle-wave" y="0" className="wave wave1" />
-          <use x="48" xlinkHref="#gentle-wave" y="3" className="wave wave2" />
-          <use x="48" xlinkHref="#gentle-wave" y="5" className="wave wave3" />
-          <use x="48" xlinkHref="#gentle-wave" y="7" className="wave wave4" />
+          <use fill="rgba(228,229,23,0.7)" x="0" xlinkHref="#gentle-wave" y="0" className="wave wave1" />
+          <use fill="rgba(255,255,255,0.5)" x="0" xlinkHref="#gentle-wave" y="3" className="wave wave2" />
+          <use fill="rgba(255,255,255,0.3)" x="0" xlinkHref="#gentle-wave" y="5" className="wave wave3" />
+          <use fill="#fff" x="0" xlinkHref="#gentle-wave" y="7" className="wave wave4" />
         </g>
       </svg>
     </div>

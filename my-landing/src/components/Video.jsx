@@ -31,7 +31,7 @@
 // export default Video;
 
 import React from 'react';
-import AboutSection from './AboutSection';
+import AboutSection from './AboutSection1';
 import Waves from './Waves';
 
 const Video = () => {
