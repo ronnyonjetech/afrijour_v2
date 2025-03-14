@@ -1,21 +1,17 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-// import Video from '../components/Video'
-import TestimonialImage from "../components/TestimonialImage";
-import TestimonialsSection from "../components/Testimonials/TestimonialSection";
 import Header from "../components/MapSection/Header";
-const Testimonial = () => {
+import ResearchHub from "../components/ResearchSection/ResearchHub";
+const Research = () => {
   return (
     <>
       {/* <Nav />
-      
-      <TestimonialImage /> */}
-       <Header
-        imageSrc="https://www.sender.net/wp-content/uploads/2023/04/b0147-testimonial-advertising-small.webp"
-        title="Testimonials"
+      <Header /> */}
+      <Header
+        imageSrc="https://healthpolicy-watch.news/wp-content/uploads/2023/04/BMRI7_LAB1-scaled.jpeg"
+        title="Research"
       ></Header>
-      
       <div className="container">
         <div className="row g-0 w-100">
           {/* Left Column */}
@@ -29,28 +25,28 @@ const Testimonial = () => {
                 color: "#113541",
               }}
             >
-              <b>Testimonials</b>
+              <b>Research Hub & Resources</b>
             </h3>
           </div>
 
           {/* Right Column */}
           <div className="col-md-9">
             <h3 className="mb-3" style={{ color: "#08444c" }}>
-            Welcome to the Afrikajournal Testimonial section.Here, you'll find
-            answers to common questions about our platform, including how to
-            access journals, submit publications, and explore research from
-            across Africa. If you need further assistance, feel free to reach
-            out to our support team.
+              Welcome to the AfrikaJournal Research Tools section. Our platform
+              offers a suite of resources designed to enhance your research
+              workflow. Explore powerful tools for literature discovery,
+              citation management, data analysis, and collaboration. Whether
+              you're organizing references, accessing open-access journals, or
+              utilizing advanced indexing features, AfrikaJournal equips you
+              with everything you need for efficient and impactful research.
             </h3>
-           
           </div>
         </div>
       </div>
-      
-      <TestimonialsSection />
+      <ResearchHub/>
       <Footer />
     </>
   );
 };
 
-export default Testimonial;
+export default Research;

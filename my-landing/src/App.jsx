@@ -9,6 +9,8 @@ import About from './pages/About';
 import Faqs from './pages/Faqs';
 import Trial from './pages/Trial';
 import Impact from './pages/Impact';
+import Research from './pages/Research';
+import Conferences from './pages/Conferences';
 function App() {
   
 
@@ -27,6 +29,8 @@ function App() {
         <Route path="faqs" element={<Faqs/>}/>
         <Route path="trials" element={<Trial/>}/>
         <Route path="impact" element={<Impact/>}/>
+        <Route path="research" element={<Research/>}/>
+        <Route path="conference" element={<Conferences/>}/>
       </Routes>
       
     </Router>

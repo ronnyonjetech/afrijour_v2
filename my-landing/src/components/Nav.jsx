@@ -65,7 +65,7 @@ const Nav = () => {
                   Our Impact
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link text-white" to="/map">
                   Explore
                 </Link>
@@ -75,16 +75,19 @@ const Nav = () => {
                 <a className="nav-link text-white" href="#">
                   Features
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a className="nav-link text-white" href="/about">
                   About
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">
+                {/* <a className="nav-link text-white" href="#">
                   Research
-                </a>
+                </a> */}
+                <Link className="nav-link text-white" to="/research">
+                  Research
+                </Link>
               </li>
 
               <li className="nav-item">
@@ -95,6 +98,11 @@ const Nav = () => {
               <li className="nav-item">
                 <Link className="nav-link text-white" to="/faqs">
                   Faqs
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/conference">
+                  Conferences
                 </Link>
               </li>
             </ul>
