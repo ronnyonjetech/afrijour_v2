@@ -8,6 +8,8 @@
     color: #ffff;
     white-space: nowrap;
     overflow: hidden;
+    box-shadow: none !important;  /* Prevent unwanted shadows */
+    border-radius: 0 !important;  /* Ensure no rounded corners */
   }
   
   .cursor {

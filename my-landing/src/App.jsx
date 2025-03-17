@@ -11,6 +11,8 @@ import Trial from './pages/Trial';
 import Impact from './pages/Impact';
 import Research from './pages/Research';
 import Conferences from './pages/Conferences';
+import { LanguageProvider } from './contexts/LanguageContext';
+import Fund from './pages/Fund';
 function App() {
   
 
@@ -19,6 +21,7 @@ function App() {
     //   <Home/>
     //   {/* <Testimonial/> */}
     // </>
+    <LanguageProvider>
     <Router>
      
       <Routes>
@@ -31,9 +34,10 @@ function App() {
         <Route path="impact" element={<Impact/>}/>
         <Route path="research" element={<Research/>}/>
         <Route path="conference" element={<Conferences/>}/>
+        <Route path="funds" element={<Fund/>}/>
       </Routes>
       
-    </Router>
+    </Router></LanguageProvider>
   )
 }
 

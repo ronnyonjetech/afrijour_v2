@@ -1,0 +1,80 @@
+.scale-on-hover {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .scale-on-hover:hover {
+    transform: scale(1.02);
+  }
+  
+  .group-hover-ms-1 {
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .scale-on-group-hover {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .scale-on-group-hover-110 {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .rotate-on-group-hover {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .rotate-on-group-hover:hover {
+    transform: rotate(12deg);
+  }
+  
+  .group-hover-r-8 {
+    transition: r 0.3s ease-in-out;
+  }
+  
+  .group-hover-fw-bolder {
+    transition: font-weight 0.3s ease-in-out;
+  }
+  
+  .group-hover-translate-y-1 {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hover-ms-1 {
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .hover-ms-1:hover {
+    margin-left: 0.25rem;
+  }
+  
+  /* Apply group hover effects using JavaScript to mimic Tailwind's behavior */
+  .row.g-4 > div > div { /* Select the main card divs */
+    cursor: pointer; /* Indicate interactivity */
+  }
+  
+  .row.g-4 > div > div:hover .group-hover-ms-1 {
+    margin-left: 0.25rem; /* Equivalent to Tailwind's ms-1 */
+  }
+  
+  .row.g-4 > div > div:hover .scale-on-group-hover {
+    transform: scale(1.05);
+  }
+  
+  .row.g-4 > div > div:hover .scale-on-group-hover-110 {
+    transform: scale(1.10);
+  }
+  
+  .row.g-4 > div > div:hover .rotate-on-group-hover {
+    transform: rotate(12deg);
+  }
+  
+  .row.g-4 > div > div:hover .group-hover-r-8 {
+    r: 8;
+  }
+  
+  .row.g-4 > div > div:hover .group-hover-fw-bolder {
+    font-weight: bold;
+  }
+  
+  .row.g-4 > div > div:hover .group-hover-translate-y-1 {
+    transform: translateY(-0.25rem); /* Roughly equivalent to Tailwind's -y-1 */
+  }

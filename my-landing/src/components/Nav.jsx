@@ -1,115 +1,121 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { LanguageContext } from "../contexts/LanguageContext";
+
+const languageOptions = {
+  en: "English",
+  fr: "Français",
+  portuguese: "Português",
+  zulu: "IsiZulu",
+};
 
 const Nav = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { language, setLanguage, translations } = useContext(LanguageContext);
+  const location = useLocation(); // Get current route path
+  const [scrolled, setScrolled] = useState(window.scrollY > 30);
+  const [activeNav, setActiveNav] = useState(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 50);
     };
 
+    handleScroll(); // Run initially to set state correctly
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  // const toggleDropdown = (e) => {
-  //   e.preventDefault();
-  //   setDropdownOpen(!dropdownOpen);
-  // };
+  useEffect(() => {
+    setActiveNav(location.pathname);
+    setScrolled(window.scrollY > 30); // Ensure nav stays active when switching pages
+  }, [location.pathname]);
+
+  const handleLanguageChange = (event) => {
+    const newLanguage = event.target.value;
+    setLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", newLanguage);
+  };
 
   return (
-    <>
-      {/* #6eb444 */}
-      {/* <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top"
-        style={{
-          backgroundColor: scrolled || dropdownOpen ? "#08444c" : "transparent",
-          transition: "background-color 0.3s ease-in-out",
-        }}
-      > */}
-      <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top"
-        style={{
-          backgroundColor:
-            scrolled || dropdownOpen ? "rgba(8, 68, 76, 0.6)" : "transparent",
-          backdropFilter: scrolled || dropdownOpen ? "blur(6px)" : "none", // Only apply blur when scrolled
-          boxShadow: scrolled ? "0 4px 6px rgba(0, 0, 0, 0.05)" : "none", // Optional subtle shadow when scrolled
-          transition:
-            "background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-        }}
-      >
-        <div className="container-fluid">
-          <Link className="navbar-brand text-white" to="/">
-            <img alt="AGRA Logo" src="/logo1.png" width="100" height="auto" />
-          </Link>
-          <button
-            className="navbar-toggler text-white"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
-          >
-            Menu
-          </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-                {/* <a className="nav-link text-white" href="#">
-                  Our Impact
-                </a> */}
-                 <Link className="nav-link text-white" to="/impact">
-                  Our Impact
+    <nav
+      className="navbar navbar-expand-lg navbar-dark fixed-top"
+      style={{
+        backgroundColor: scrolled ? "rgba(8, 68, 76, 0.6)" : "transparent",
+        backdropFilter: scrolled ? "blur(6px)" : "none",
+        transition: "background-color 0.3s, backdrop-filter 0.3s",
+      }}
+    >
+      <div className="container-fluid">
+        <Link className="navbar-brand text-white" to="/">
+          <img alt="AGRA Logo" src="/logo1.png" width="100" height="auto" />
+        </Link>
+        <button
+          className="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+        >
+          Menu
+        </button>
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <ul className="navbar-nav ms-auto">
+            {[
+              { path: "/impact", label: translations.impact },
+              { path: "/about", label: translations.about },
+              { path: "/research", label: translations.research },
+              // { path: "/testimonial", label: translations.testimonials },
+              // { path: "/faqs", label: translations.faqs },
+              { path: "/conference", label: translations.conferences },
+              // { path: "/funds", label: translations.funds_grants },
+            ].map((item) => (
+              <li className="nav-item" key={item.path}>
+                <Link
+                  className={`nav-link ${
+                    activeNav === item.path ? "text-warning" : "text-white"
+                  }`}
+                  to={item.path}
+                >
+                  {item.label}
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link text-white" to="/map">
-                  Explore
-                </Link>
-              </li>
-              
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  Features
-                </a>
-              </li> */}
-              <li className="nav-item">
-                <a className="nav-link text-white" href="/about">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                {/* <a className="nav-link text-white" href="#">
-                  Research
-                </a> */}
-                <Link className="nav-link text-white" to="/research">
-                  Research
-                </Link>
-              </li>
+            ))}
 
-              <li className="nav-item">
-                <Link className="nav-link text-white" to="/testimonial">
-                  Testimonials
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to="/faqs">
-                  Faqs
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to="/conference">
-                  Conferences
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <li className="nav-item d-flex align-items-center me-3">
+              <span className="text-white me-2 nav-link">
+                {translations.language}:
+              </span>
+              <select
+                className="form-select bg-transparent text-white border-0 nav-link"
+                value={language}
+                onChange={handleLanguageChange}
+                style={{
+                  cursor: "pointer",
+                  appearance: "none",
+                  backgroundColor: "transparent",
+                  color: "white",
+                  width: "120px",
+                  borderBottom: "1px solid white",
+                }}
+              >
+                {Object.entries(languageOptions).map(([lang, label]) => (
+                  <option
+                    key={lang}
+                    style={{ backgroundColor: "black", color: "white" }}
+                    value={lang}
+                  >
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 

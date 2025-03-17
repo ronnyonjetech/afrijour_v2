@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../components/MapSection/Header";
 import Footer from "../components/Footer";
 // import AboutSection from '../components/AboutSection'
 import About1 from "../components/About1";
 // import AboutSection from '../components/AboutSection1'
-
+import { LanguageContext } from "../contexts/LanguageContext";
 function About() {
+  const { translations } = useContext(LanguageContext);
   return (
     <>
       <Header
         imageSrc="https://journalistsresource.org/wp-content/uploads/2021/05/books-2158773_1920-860x466.jpg"
-        title="About"
+        title={translations.about1.about}
       ></Header>
       {/* <AboutSection/> */}
       <div className="container">
@@ -26,22 +27,14 @@ function About() {
                 color: "#113541",
               }}
             >
-              <b>Afrika journal platform</b>
+              <b>{translations.about1. platform}</b>
             </h3>
           </div>
 
           {/* Right Column */}
           <div className="col-md-9">
             <h3 className="mb-3" style={{ color: "#08444c" }}>
-              Welcome to the AfrikaJournal
-              Indexing Hub. Our platform is dedicated to increasing the
-              visibility and global reach of African journals. We provide
-              powerful tools for indexing, citation tracking, and seamless
-              integration with international research databases. By enhancing
-              discoverability, facilitating open-access integration, and
-              supporting metadata standardization, AfrikaJournal ensures that
-              African scholarship gains the recognition it deserves on the
-              global stage.
+            {translations.about1.welcomeAbout}
             </h3>
           </div>
         </div>

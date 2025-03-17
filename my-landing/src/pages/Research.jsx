@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Header from "../components/MapSection/Header";
 import ResearchHub from "../components/ResearchSection/ResearchHub";
+import { LanguageContext } from "../contexts/LanguageContext";
 const Research = () => {
+  const { translations } = useContext(LanguageContext);
   return (
     <>
-      {/* <Nav />
-      <Header /> */}
+     
       <Header
         imageSrc="https://healthpolicy-watch.news/wp-content/uploads/2023/04/BMRI7_LAB1-scaled.jpeg"
         title="Research"
@@ -25,20 +27,14 @@ const Research = () => {
                 color: "#113541",
               }}
             >
-              <b>Research Hub & Resources</b>
+              <b>{translations.researchHub}</b>
             </h3>
           </div>
 
           {/* Right Column */}
           <div className="col-md-9">
             <h3 className="mb-3" style={{ color: "#08444c" }}>
-              Welcome to the AfrikaJournal Research Tools section. Our platform
-              offers a suite of resources designed to enhance your research
-              workflow. Explore powerful tools for literature discovery,
-              citation management, data analysis, and collaboration. Whether
-              you're organizing references, accessing open-access journals, or
-              utilizing advanced indexing features, AfrikaJournal equips you
-              with everything you need for efficient and impactful research.
+             {translations.researchTools}
             </h3>
           </div>
         </div>

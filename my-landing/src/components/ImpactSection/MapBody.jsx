@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   ComposableMap,
@@ -51,7 +50,9 @@ const MapBody = () => {
       .then((data) => setGeoData(data))
       .catch((err) => console.error("Error loading GeoJSON:", err));
 
-    fetch("https://backend.afrikajournals.org/journal_api/api/journals/country-count/")
+    fetch(
+      "https://backend.afrikajournals.org/journal_api/api/journals/country-count/"
+    )
       .then((res) => res.json())
       .then((data) => {
         setJournalData(data);
@@ -146,10 +147,15 @@ const MapBody = () => {
                     onMouseLeave={() =>
                       setTooltip((prev) => ({ ...prev, visible: false }))
                     }
+                    // onClick={() =>
+                    //   (window.location.href = `https://afrijour.web.app/?query=${countryName
+                    //     .replace(/\s+/g, "")
+                    //     .toLowerCase()}`)
+                    // }
                     onClick={() =>
-                      (window.location.href = `https://afrijour.web.app/?query=${countryName
-                        .replace(/\s+/g, "")
-                        .toLowerCase()}`)
+                      (window.location.href = `https://afrijour.web.app/?query=${encodeURIComponent(
+                        geo.properties.name
+                      )}`)
                     }
                   />
                 );

@@ -65,6 +65,11 @@
   display: block;
 }
 
+.video-element:focus {
+  outline: none;
+}
+
+
 /* .waves .wave1 {
   fill: rgba(228, 229, 23, 0.7);
 }
